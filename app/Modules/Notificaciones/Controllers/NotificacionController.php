@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace Modules\Notificaciones\Controllers;
 
+use App\Controllers\BaseController;
 use App\Models\NotificacionModel;
 
 /**
@@ -19,6 +20,6 @@ class NotificacionController extends BaseController
                 ['name' => 'Notificaciones', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('notificaciones/index', $data);
+        return view('Modules\Notificaciones\Views\index', $data);
     }
 }

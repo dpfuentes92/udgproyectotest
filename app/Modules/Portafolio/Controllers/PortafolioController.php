@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace Modules\Portafolio\Controllers;
 
+use App\Controllers\BaseController;
 use App\Models\UsuarioModel;
 use App\Models\ProyectoModel;
 
@@ -21,6 +22,6 @@ class PortafolioController extends BaseController
                 ['name' => 'Portafolio', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('portafolio/perfil', $data);
+        return view('Modules\Portafolio\Views\perfil', $data);
     }
 }

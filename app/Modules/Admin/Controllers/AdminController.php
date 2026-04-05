@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace Modules\Admin\Controllers;
 
+use App\Controllers\BaseController;
 use App\Models\UsuarioModel;
 
 /**
@@ -20,7 +21,7 @@ class AdminController extends BaseController
                 ['name' => 'Dashboard', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('admin/dashboard', $data);
+        return view('Modules\Admin\Views\dashboard', $data);
     }
 
     public function usuarios()
@@ -35,6 +36,6 @@ class AdminController extends BaseController
                 ['name' => 'Usuarios', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('admin/usuarios', $data);
+        return view('Modules\Admin\Views\usuarios', $data);
     }
 }
