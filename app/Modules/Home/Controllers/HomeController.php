@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Modules\Home\Controllers;
+
+use App\Controllers\BaseController;
 
 /**
  * HomeController
@@ -16,6 +18,6 @@ class HomeController extends BaseController
                 ['name' => 'Inicio', 'url' => base_url(), 'active' => true]
             ]
         ];
-        return view('home/index', $data);
+        return view('App\Modules\Home\Views\index', $data);
     }
 }
