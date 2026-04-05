@@ -45,6 +45,9 @@ $routes->group('admin', ['namespace' => 'Modules\Admin\Controllers'], function($
     $routes->get('usuarios', 'AdminController::usuarios');
 });
 
+$routes->get('flujo-aprobacion', '\Modules\FlujoAprobacion\Controllers\FlujoAprobacionController::index');
+$routes->get('donaciones', '\Modules\Donaciones\Controllers\DonacionesController::index');
+
 $routes->get('notificaciones', '\Modules\Notificaciones\Controllers\NotificacionController::index');
 
 // --- API Routes (AJAX) ---
