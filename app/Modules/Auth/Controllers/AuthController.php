@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Auth\Controllers;
+namespace App\Modules\Auth\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UsuarioModel;
@@ -20,7 +20,7 @@ class AuthController extends BaseController
                 ['name' => 'Login', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('Modules\Auth\Views\login', $data);
+        return view('App\Modules\Auth\Views\login', $data);
     }
 
     public function registro()
@@ -32,7 +32,7 @@ class AuthController extends BaseController
                 ['name' => 'Registro', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('Modules\Auth\Views\registro', $data);
+        return view('App\Modules\Auth\Views\registro', $data);
     }
 
     public function logout()

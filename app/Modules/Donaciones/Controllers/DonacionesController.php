@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Donaciones\Controllers;
+namespace App\Modules\Donaciones\Controllers;
 
 use App\Controllers\BaseController;
 
@@ -19,6 +19,6 @@ class DonacionesController extends BaseController
                 ['name' => 'Donaciones', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('Modules\Donaciones\Views\index', $data);
+        return view('App\Modules\Donaciones\Views\index', $data);
     }
 }

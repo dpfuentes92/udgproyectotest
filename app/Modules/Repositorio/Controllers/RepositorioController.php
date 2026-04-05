@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Repositorio\Controllers;
+namespace App\Modules\Repositorio\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ProyectoModel;
@@ -20,7 +20,7 @@ class RepositorioController extends BaseController
                 ['name' => 'Repositorio', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('Modules\Repositorio\Views\index', $data);
+        return view('App\Modules\Repositorio\Views\index', $data);
     }
 
     public function detalle($id)
@@ -33,6 +33,6 @@ class RepositorioController extends BaseController
                 ['name' => 'Detalle', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('Modules\Repositorio\Views\detalle', $data);
+        return view('App\Modules\Repositorio\Views\detalle', $data);
     }
 }

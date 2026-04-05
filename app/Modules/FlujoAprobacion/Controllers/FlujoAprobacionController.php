@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\FlujoAprobacion\Controllers;
+namespace App\Modules\FlujoAprobacion\Controllers;
 
 use App\Controllers\BaseController;
 
@@ -19,6 +19,6 @@ class FlujoAprobacionController extends BaseController
                 ['name' => 'Flujo de Aprobación', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('Modules\FlujoAprobacion\Views\index', $data);
+        return view('App\Modules\FlujoAprobacion\Views\index', $data);
     }
 }

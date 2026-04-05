@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Comite\Controllers;
+namespace App\Modules\Comite\Controllers;
 
 use App\Controllers\BaseController;
 
@@ -20,7 +20,7 @@ class ComiteController extends BaseController
                 ['name' => 'Dashboard', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('Modules\Comite\Views\dashboard', $data);
+        return view('App\Modules\Comite\Views\dashboard', $data);
     }
 
     public function revisar_proyecto($id)
@@ -34,7 +34,7 @@ class ComiteController extends BaseController
                 ['name' => 'Revisar Proyecto', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('Modules\Comite\Views\revisar_proyecto', $data);
+        return view('App\Modules\Comite\Views\revisar_proyecto', $data);
     }
 
     public function dictaminar()

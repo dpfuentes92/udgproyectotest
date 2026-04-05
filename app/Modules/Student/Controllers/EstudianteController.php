@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Student\Controllers;
+namespace App\Modules\Student\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ProyectoModel;
@@ -21,7 +21,7 @@ class EstudianteController extends BaseController
                 ['name' => 'Dashboard', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('Modules\Student\Views\dashboard', $data);
+        return view('App\Modules\Student\Views\dashboard', $data);
     }
 
     public function subir_proyecto()
@@ -34,7 +34,7 @@ class EstudianteController extends BaseController
                 ['name' => 'Subir Proyecto', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('Modules\Student\Views\subir_proyecto', $data);
+        return view('App\Modules\Student\Views\subir_proyecto', $data);
     }
 
     public function mis_proyectos()
@@ -47,6 +47,6 @@ class EstudianteController extends BaseController
                 ['name' => 'Mis Proyectos', 'url' => '#', 'active' => true]
             ]
         ];
-        return view('Modules\Student\Views\mis_proyectos', $data);
+        return view('App\Modules\Student\Views\mis_proyectos', $data);
     }
 }
