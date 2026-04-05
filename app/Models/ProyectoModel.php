@@ -16,11 +16,18 @@ class ProyectoModel extends Model
         'student_id',
         'title',
         'description',
+        'keywords',
+        'area_conocimiento',
+        'tipo_actividad',
+        'asesor_nombre',
+        'folio',
         'status',
         'file_path',
+        'anexos_paths',
         'created_at',
         'updated_at'
     ];
+
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
