@@ -1,0 +1,50 @@
+# CodeIgniter 4 Gitignore
+
+# Composer
+vendor/
+
+# Environment
+.env
+env
+.env.*
+!.env.example
+
+# Writable
+writable/*
+!writable/index.html
+!writable/.htaccess
+
+# Logs
+writable/logs/*
+!writable/logs/index.html
+
+# Cache
+writable/cache/*
+!writable/cache/index.html
+
+# Session
+writable/session/*
+!writable/session/index.html
+
+# Debugbar
+writable/debugbar/*
+!writable/debugbar/index.html
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# User Uploads (Tesis)
+public/uploads/*
+!public/uploads/index.html
