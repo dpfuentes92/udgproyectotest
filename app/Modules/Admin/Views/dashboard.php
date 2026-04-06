@@ -14,8 +14,6 @@
             <a href="<?= base_url('admin/dashboard') ?>" class="list-group-item list-group-item-action active">Resumen General</a>
             <a href="<?= base_url('admin/usuarios') ?>" class="list-group-item list-group-item-action">Gestión de Usuarios</a>
             <a href="<?= base_url('admin/roles') ?>" class="list-group-item list-group-item-action">Roles y Permisos</a>
-            <a href="<?= base_url('admin/reportes') ?>" class="list-group-item list-group-item-action">Reportes del Sistema</a>
-            <a href="<?= base_url('admin/config') ?>" class="list-group-item list-group-item-action text-danger mt-3">Configuraciones Críticas</a>
         </div>
     </div>
     <div class="col-md-9">

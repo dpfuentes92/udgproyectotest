@@ -19,7 +19,13 @@
                     <a class="nav-link px-3" href="<?= base_url('repositorio') ?>"><i class="bi bi-search"></i> Repositorio</a>
                 </li>
                 
-                <!-- Menú Dropdown para Estudiantes (Simulado) -->
+                <?php 
+                $userRole = session()->get('rol'); 
+                $isLoggedIn = session()->get('isLoggedIn');
+                ?>
+
+                <!-- Menú Dropdown para Estudiantes (Visible para estudiante y admin) -->
+                <?php if ($isLoggedIn && ($userRole === 'estudiante' || $userRole === 'administrador')): ?>
                 <li class="nav-item dropdown px-lg-2">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Estudiante</a>
                     <ul class="dropdown-menu shadow border-0">
@@ -28,8 +34,10 @@
                         <li><a class="dropdown-item" href="<?= base_url('estudiante/mis_proyectos') ?>">Mis Proyectos</a></li>
                     </ul>
                 </li>
+                <?php endif; ?>
 
-                <!-- Menú Dropdown para Comité (Simulado) -->
+                <!-- Menú Dropdown para Comité (Visible para comite y admin) -->
+                <?php if ($isLoggedIn && ($userRole === 'comite' || $userRole === 'administrador')): ?>
                 <li class="nav-item dropdown px-lg-2">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Comité</a>
                     <ul class="dropdown-menu shadow border-0">
@@ -37,16 +45,21 @@
                         <li><a class="dropdown-item" href="<?= base_url('comite/historial') ?>">Historial de Evaluaciones</a></li>
                     </ul>
                 </li>
+                <?php endif; ?>
 
-                <!-- Menú Dropdown para Admin (Simulado) -->
+                <!-- Menú Dropdown para Admin (Visible solo para admin) -->
+                <?php if ($isLoggedIn && $userRole === 'administrador'): ?>
                 <li class="nav-item dropdown px-lg-2">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Administración</a>
                     <ul class="dropdown-menu shadow border-0">
-                        <li><a class="dropdown-item" href="<?= base_url('admin/dashboard') ?>">Panel Admin</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('admin') ?>">Panel Admin</a></li>
                         <li><a class="dropdown-item" href="<?= base_url('admin/usuarios') ?>">Usuarios</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('admin/roles') ?>">Roles y Permisos</a></li>
                     </ul>
                 </li>
+                <?php endif; ?>
 
+                <?php if ($isLoggedIn): ?>
                 <li class="nav-item ms-lg-3">
                     <a class="nav-link position-relative px-3" href="<?= base_url('notificaciones') ?>">
                         <i class="bi bi-bell"></i>
@@ -57,8 +70,13 @@
                 </li>
 
                 <li class="nav-item ms-lg-4">
-                    <a class="btn btn-outline-light px-4 rounded-pill" href="<?= base_url('login') ?>">Cerrar Sesión</a>
+                    <a class="btn btn-outline-light px-4 rounded-pill" href="<?= base_url('logout') ?>">Cerrar Sesión</a>
                 </li>
+                <?php else: ?>
+                <li class="nav-item ms-lg-4">
+                    <a class="btn btn-light px-4 rounded-pill text-primary fw-bold" href="<?= base_url('login') ?>">Iniciar Sesión</a>
+                </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
