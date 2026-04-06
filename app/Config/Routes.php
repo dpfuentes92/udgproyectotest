@@ -58,7 +58,14 @@ $routes->group('', ['filter' => 'auth'], function($routes) {
     $routes->get('flujo-aprobacion', '\App\Modules\FlujoAprobacion\Controllers\FlujoAprobacionController::index');
     $routes->get('donaciones', '\App\Modules\Donaciones\Controllers\DonacionesController::index');
     $routes->get('notificaciones', '\App\Modules\Notificaciones\Controllers\NotificacionController::index');
+
+    // Herramientas (Admin & Student)
+    $routes->group('herramientas', ['namespace' => 'App\Modules\Herramientas\Controllers', 'filter' => 'role:estudiante,administrador'], function($routes) {
+        $routes->get('/', 'HerramientasController::index');
+        $routes->get('dashboard', 'HerramientasController::index');
+    });
 });
+
 
 // --- API Routes (AJAX) ---
 $routes->group('api', function($routes) {

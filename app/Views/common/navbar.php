@@ -32,6 +32,8 @@
                         <li><a class="dropdown-item" href="<?= base_url('estudiante') ?>">Dashboard</a></li>
                         <li><a class="dropdown-item" href="<?= base_url('estudiante/subir_proyecto') ?>">Subir Proyecto</a></li>
                         <li><a class="dropdown-item" href="<?= base_url('estudiante/mis_proyectos') ?>">Mis Proyectos</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="<?= base_url('herramientas') ?>"><i class="bi bi-tools me-2"></i>Herramientas</a></li>
                     </ul>
                 </li>
                 <?php endif; ?>
@@ -55,6 +57,8 @@
                         <li><a class="dropdown-item" href="<?= base_url('admin') ?>">Panel Admin</a></li>
                         <li><a class="dropdown-item" href="<?= base_url('admin/usuarios') ?>">Usuarios</a></li>
                         <li><a class="dropdown-item" href="<?= base_url('admin/roles') ?>">Roles y Permisos</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="<?= base_url('herramientas') ?>"><i class="bi bi-tools me-2"></i>Herramientas</a></li>
                     </ul>
                 </li>
                 <?php endif; ?>
