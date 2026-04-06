@@ -15,32 +15,42 @@ class CreateUsersTable extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'role_id' => [
-                'type'       => 'INT',
-                'constraint' => 5,
-                'unsigned'   => true,
-            ],
-            'username' => [
+            'codigo' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '50',
+                'constraint' => '20',
                 'unique'     => true,
+                'null'       => true,
             ],
-            'password' => [
+            'nombre' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '255',
+                'constraint' => '100',
             ],
             'email' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '100',
+                'constraint' => '150',
                 'unique'     => true,
             ],
-            'first_name' => [
+            'password_hash' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '100',
+                'constraint' => '255',
             ],
-            'last_name' => [
+            'rol' => [
+                'type'       => 'ENUM',
+                'constraint' => ['estudiante','comite','administrador','visitante'],
+                'default'    => 'estudiante',
+            ],
+            'activo' => [
+                'type'       => 'BOOLEAN',
+                'default'    => true,
+            ],
+            'two_factor_code' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '100',
+                'constraint' => '10',
+                'null'       => true,
+            ],
+            'two_factor_expires_at' => [
+                'type'       => 'DATETIME',
+                'null'       => true,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -52,12 +62,11 @@ class CreateUsersTable extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('role_id', 'roles', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->createTable('users');
+        $this->forge->createTable('usuarios', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('users');
+        $this->forge->dropTable('usuarios', true);
     }
 }

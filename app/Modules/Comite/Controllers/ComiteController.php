@@ -42,4 +42,17 @@ class ComiteController extends BaseController
         // Lógica de dictaminación
         return redirect()->to('/comite/dashboard');
     }
+
+    public function historial()
+    {
+        $data = [
+            'title' => 'Historial de Evaluaciones - UDG-Proyectos',
+            'breadcrumbs' => [
+                ['name' => 'Inicio', 'url' => base_url(), 'active' => false],
+                ['name' => 'Dashboard', 'url' => base_url('comite'), 'active' => false],
+                ['name' => 'Historial de Evaluaciones', 'url' => '#', 'active' => true]
+            ]
+        ];
+        return view('App\Modules\Comite\Views\historial', $data);
+    }
 }
