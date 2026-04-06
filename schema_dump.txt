@@ -1,0 +1,32 @@
+--- proyectos ---
+id | int | NO | PRI |  | auto_increment
+estudiante_id | int | NO | MUL |  | 
+titulo | varchar(255) | NO |  |  | 
+resumen | text | YES |  |  | 
+asesor | varchar(255) | YES |  |  | 
+folio_seguimiento | varchar(50) | YES | UNI |  | 
+archivo_pdf | varchar(255) | YES |  |  | 
+archivo_anexos | varchar(255) | YES |  |  | 
+estado | enum('Pendiente','En Revisión','Correcciones','Aprobado','Rechazado','Publicado') | YES |  | Pendiente | 
+area_tematica | varchar(100) | YES |  |  | 
+created_at | datetime | YES |  | CURRENT_TIMESTAMP | DEFAULT_GENERATED
+--- auditoria_usuarios ---
+id | int | NO | PRI |  | auto_increment
+admin_id | int | YES | MUL |  | 
+accion | enum('CREATE','UPDATE','DELETE','ROLE_CHANGE','LOGIN','LOGOUT') | NO |  |  | 
+usuario_afectado_id | int | YES |  |  | 
+datos_anteriores | json | YES |  |  | 
+datos_nuevos | json | YES |  |  | 
+timestamp | timestamp | YES |  | CURRENT_TIMESTAMP | DEFAULT_GENERATED
+--- usuarios ---
+id | int | NO | PRI |  | auto_increment
+codigo_institucional | varchar(20) | NO | UNI |  | 
+nombre_completo | varchar(150) | NO |  |  | 
+correo | varchar(150) | NO | UNI |  | 
+password_hash | varchar(255) | NO |  |  | 
+rol | enum('estudiante','comite','administrador','visitante') | NO |  |  | 
+estado | enum('activo','inactivo') | NO |  | activo | 
+notif_frecuencia | enum('inmediata','diaria','desactivada') | NO |  | inmediata | 
+two_factor_secret | varchar(255) | YES |  |  | 
+created_at | timestamp | YES |  | CURRENT_TIMESTAMP | DEFAULT_GENERATED
+updated_at | timestamp | YES |  |  | 

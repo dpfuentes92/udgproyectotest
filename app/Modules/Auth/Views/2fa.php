@@ -15,7 +15,8 @@
 </head>
 <body>
     <div class="container">
-        <h2>Iniciar Sesión</h2>
+        <h2>Verificación 2FA</h2>
+        <p>Por seguridad, se ha enviado un código a tu correo institucional.</p>
         
         <?php if(session()->getFlashdata('error')): ?>
             <div class="alert"><?= session()->getFlashdata('error') ?></div>
@@ -25,11 +26,10 @@
             <div class="alert success"><?= session()->getFlashdata('success') ?></div>
         <?php endif; ?>
 
-        <form action="<?= base_url('login') ?>" method="POST">
+        <form action="<?= base_url('login/verify2fa') ?>" method="POST">
             <?= csrf_field() ?>
-            <input type="email" name="email" placeholder="Correo Institucional UDG" required pattern="^[a-zA-Z0-9._%+\-]+@(alumnos\.udg\.mx|docentes\.udg\.mx|udg\.mx)$" title="Solo correos institucionales (@alumnos.udg.mx, @docentes.udg.mx, @udg.mx)">
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <button type="submit">Entrar</button>
+            <input type="text" name="code" placeholder="Código de 6 dígitos" required pattern="\d{6}">
+            <button type="submit">Verificar</button>
         </form>
     </div>
 </body>

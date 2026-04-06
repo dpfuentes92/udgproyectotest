@@ -4,40 +4,26 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProyectoModel extends Model
+class AuditLogModel extends Model
 {
-    protected $table            = 'proyectos';
+    protected $table            = 'auditoria_usuarios';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'estudiante_id',
-        'titulo',
-        'resumen',
-        'asesor',
-        'folio_seguimiento',
-        'archivo_pdf',
-        'archivo_anexos',
-        'estado',
-        'area_tematica',
-        'created_at'
+        'usuario_id',
+        'accion',
+        'tabla_afectada',
+        'registro_id',
+        'detalles',
+        'ip_direccion',
+        'fecha_accion'
     ];
 
-
-    protected bool $allowEmptyInserts = false;
-    protected bool $updateOnlyChanged = true;
-
-    protected array $casts = [];
-    protected array $castHandlers = [];
-
     // Dates
-    protected $useTimestamps = true;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $useTimestamps = false; // Usa el timestamp de la DB directamente
 
     // Validation
     protected $validationRules      = [];

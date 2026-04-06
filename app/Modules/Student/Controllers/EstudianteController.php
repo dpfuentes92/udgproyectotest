@@ -108,22 +108,18 @@ class EstudianteController extends BaseController
         // 4. Guardar en Base de Datos
         $proyectoModel = new ProyectoModel();
 
-        // En un caso real, student_id vendría de la sesión del usuario
-        // Por ahora lo dejamos como 1 (simulado)
-        $studentId = 1; 
+        $studentId = session()->get('id') ?? 1; 
 
         $data = [
-            'student_id'        => $studentId,
-            'title'             => $this->request->getPost('title'),
-            'description'       => $description,
-            'keywords'          => $this->request->getPost('keywords'),
-            'area_conocimiento' => $this->request->getPost('area_conocimiento'),
-            'tipo_actividad'    => $this->request->getPost('tipo_actividad'),
-            'asesor_nombre'     => $this->request->getPost('asesor_nombre'),
-            'folio'             => $folio,
-            'status'            => $this->request->getPost('status'),
-            'file_path'         => $mainFilePath,
-            'anexos_paths'      => json_encode($anexosPaths),
+            'estudiante_id'     => $studentId,
+            'titulo'            => $this->request->getPost('title'),
+            'resumen'           => $description,
+            'asesor'            => $this->request->getPost('asesor_nombre'),
+            'folio_seguimiento' => $folio,
+            'estado'            => ucfirst($this->request->getPost('status')), // Pendiente, etc.
+            'archivo_pdf'       => $mainFilePath,
+            'archivo_anexos'    => json_encode($anexosPaths),
+            'area_tematica'     => $this->request->getPost('area_conocimiento'),
         ];
 
         if ($proyectoModel->insert($data)) {
